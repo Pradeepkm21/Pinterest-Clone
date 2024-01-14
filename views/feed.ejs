@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+
+</head>
+
+<body>
+  <% include nav.ejs %>
+<header>
+ <h1>Pinterest Style Image Galley with Responsive Navigation Bar</h1>
+</header> 
+
+<div class="container">  
+    <% posts.forEach(function(post){ %>
+        <div class="box">
+            <img src="/images/uploads/<%=post.image%>" alt="image"></a>
+            <div class="caption"><%= post.imageText %> </div> 
+        </div>
+    <% }) %>
+
+</div>
+   
+   
+   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+     
+   <script>
+    const navSlide = () => {
+		const lines = document.querySelector('.lines');
+		const nav = document.querySelector('.navLink');
+		
+		lines.addEventListener('click',() => {
+			nav.classList.toggle('nav-active');
+			
+		//Line Animation
+		lines.classList.toggle('toggle');
+		}); 
+	}
+	navSlide();
+   </script>
+</body>
+</html>
